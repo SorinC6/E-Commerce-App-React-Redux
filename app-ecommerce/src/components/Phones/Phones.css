@@ -1,0 +1,51 @@
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	padding: 10px 20px;
+}
+
+.phone-card {
+	margin: 5px;
+	max-width: 300px;
+	margin-bottom: 20px;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+.thumbnail {
+    border: 1px solid grey;
+    border-radius: 4px;
+	padding: 6px;
+}
+.name-price {
+	display: flex;
+	justify-content: space-between;
+	color: blue;
+}
+
+a {
+	text-decoration: none;
+	color: purple;
+}
+
+.description {
+}
+
+.btn-more {
+	display: flex;
+	justify-content: center;
+}
+
+.btn-more button {
+	padding: 10px;
+	border-radius: 10px;
+	outline: none;
+}
+
+.btn-more a {
+	padding: 10px;
+}
