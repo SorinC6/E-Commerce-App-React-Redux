@@ -7,9 +7,12 @@ import { Route } from 'react-router-dom';
 class App extends Component {
 	render() {
 		return (
-			<Layout>
-				<Route path="/" component={Phones} />
-			</Layout>
+			<div>
+				<Layout>
+					<Route path="/" component={Phones} />
+				</Layout>
+				<Route path="/phones/:id"  component={Phone}/>
+			</div>
 		);
 	}
 }
