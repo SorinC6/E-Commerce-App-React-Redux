@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPhones } from '../../store/actions/index';
+import { fetchPhones, loadMorePhones } from '../../store/actions/index';
 import { Link } from 'react-router-dom';
 import './Phones.css';
 
@@ -22,7 +22,7 @@ class Phones extends Component {
 						<h4>
 							<Link to={`/phone/${phone.id}`}>{phone.name}</Link>
 						</h4>
-						<h4>price: {phone.price} </h4>
+						<h4>price: {phone.price} $ </h4>
 					</div>
 
 					<p className="description">{shortDescription}</p>
@@ -37,7 +37,14 @@ class Phones extends Component {
 
 	render() {
 		//const { phones } = this.props;
-		return <div className="cards">{this.props.phonesData.map((phone, idx) => this.renderPhone(phone, idx))}</div>;
+		return (
+			<div>
+				<div className="cards">{this.props.phonesData.map((phone, idx) => this.renderPhone(phone, idx))}</div>
+				<div className="load-more">
+					<button onClick={this.props.loadMorePhones}>Load More Products</button>
+				</div>
+			</div>
+		);
 	}
 }
 
@@ -47,7 +54,8 @@ const mapStateToProps = (state) => {
 	};
 };
 const mapDispatchToProps = {
-	fetchPhones
+	fetchPhones,
+	loadMorePhones
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phones);

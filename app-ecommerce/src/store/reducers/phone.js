@@ -14,6 +14,11 @@ export default (state = initialState, action) => {
 				...state,
 				phones: action.payload
 			};
+		case types.LOAD_MORE_PHONES_SUCCESS:
+			return {
+				...state,
+				phones: state.phones.concat(action.payload)
+			};
 		default:
 			return state;
 	}

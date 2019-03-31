@@ -17,8 +17,8 @@ img {
 }
 
 .thumbnail {
-    border: 1px solid grey;
-    border-radius: 4px;
+	border: 0.1em solid lightgray;
+	border-radius: 4px;
 	padding: 6px;
 }
 .name-price {
@@ -32,8 +32,8 @@ a {
 	color: purple;
 }
 
-.description {
-}
+/* .description {
+} */
 
 .btn-more {
 	display: flex;
@@ -48,4 +48,22 @@ a {
 
 .btn-more a {
 	padding: 10px;
+}
+
+.load-more {
+	display: flex;
+	justify-content: center;
+	margin: 10px;
+	margin-bottom: 50px;
+}
+
+.load-more button {
+	padding: 20px;
+	border-radius: 10px;
+	outline: none;
+}
+
+.load-more button:hover {
+	color: white;
+	background: black;
 }

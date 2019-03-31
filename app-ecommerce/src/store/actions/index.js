@@ -14,3 +14,20 @@ export const fetchPhones = () => async (dispatch) => {
 		dispatch({ type: types.FETCH_PHONE_FAIL, payload: error, error: true });
 	}
 };
+
+export const loadMorePhones = () => async (dispatch) => {
+	try {
+		dispatch({ type: types.LOAD_MORE_PHONES_START });
+
+		const phones = await fetchPhonesApi();
+		dispatch({
+			type: types.LOAD_MORE_PHONES_SUCCESS,
+			payload: phones
+		});
+	} catch (error) {
+		dispatch({
+			type:types.LOAD_MORE_PHONES_FAIL,
+			payload:error
+		})
+	}
+};
