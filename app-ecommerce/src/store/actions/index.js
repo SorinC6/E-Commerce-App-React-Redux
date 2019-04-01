@@ -1,5 +1,9 @@
 import * as types from './actionTypes';
-import { fetchPhones as fetchPhonesApi } from '../api/index';
+import {
+	fetchPhones as fetchPhonesApi,
+	fetchPhonesById as fetchPhoneByIdApi
+	//
+} from '../api/index';
 
 export const fetchPhones = () => async (dispatch) => {
 	try {
@@ -26,8 +30,26 @@ export const loadMorePhones = () => async (dispatch) => {
 		});
 	} catch (error) {
 		dispatch({
-			type:types.LOAD_MORE_PHONES_FAIL,
-			payload:error
-		})
+			type: types.LOAD_MORE_PHONES_FAIL,
+			payload: error
+		});
+	}
+};
+
+export const fetchPhoneById = (id) => async (dispatch) => {
+	dispatch({ type: types.FETCH_PHONE_BY_ID_START });
+
+	try {
+		const phone = await fetchPhoneByIdApi(id);
+		dispatch({
+			type: types.FETCH_PHONE_BY_ID_SUCCESS,
+			payload: phone
+		});
+	} catch (error) {
+		dispatch({
+			type: types.FETCH_PHONE_BY_ID_FAIL,
+			payload: error,
+			error: true
+		});
 	}
 };

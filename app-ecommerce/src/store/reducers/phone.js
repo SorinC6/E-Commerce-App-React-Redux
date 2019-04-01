@@ -1,7 +1,8 @@
 import * as types from '../actions/actionTypes';
 
 const initialState = {
-	phones: []
+	phones: [],
+	phone: []
 };
 
 export default (state = initialState, action) => {
@@ -18,6 +19,11 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				phones: state.phones.concat(action.payload)
+			};
+		case types.FETCH_PHONE_BY_ID_SUCCESS:
+			return {
+				...state,
+				phone: action.payload
 			};
 		default:
 			return state;
