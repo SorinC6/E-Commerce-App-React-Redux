@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPhoneById } from '../../store/actions/index';
 import { withRouter } from 'react-router-dom';
+import PhoneCard from './PhoneCard';
 
 class Phone extends Component {
 	componentDidMount() {
 		this.props.fetchPhoneById(this.props.match.params.id);
 	}
 	render() {
-		//console.log(this.props);
+		const { phone } = this.props;
 		return (
-			<div>
-				<p>Phone</p>
+			<div className="card-view">
+			{
+				phone.length && <PhoneCard phone={phone} />
+			}
+				
 			</div>
 		);
 	}
