@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPhones, loadMorePhones } from '../../store/actions/index';
+import { fetchPhones, loadMorePhones, addPhoneToBasket } from '../../store/actions/index';
 import { Link } from 'react-router-dom';
 import './Phones.css';
 
@@ -11,7 +11,7 @@ class Phones extends Component {
 
 	renderPhone(phone, index) {
 		const shortDescription = phone.description;
-
+		const { addPhoneToBasket } = this.props;
 		return (
 			<div className="phone-card" key={index}>
 				<div className="thumbnail">
@@ -27,7 +27,7 @@ class Phones extends Component {
 
 					<p className="description">{shortDescription}</p>
 					<div className="btn-more">
-						<button>Buy Now</button>
+						<button onClick={() => addPhoneToBasket(phone.id)}>Buy Now</button>
 						<Link to={`/phone/${phone.id}`}>More Info</Link>
 					</div>
 				</div>
@@ -55,7 +55,8 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = {
 	fetchPhones,
-	loadMorePhones
+	loadMorePhones,
+	addPhoneToBasket
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phones);

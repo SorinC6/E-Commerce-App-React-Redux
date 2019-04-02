@@ -53,3 +53,10 @@ export const fetchPhoneById = (id) => async (dispatch) => {
 		});
 	}
 };
+
+export const addPhoneToBasket = (id) => (dispatch) => {
+	dispatch({
+		type: types.ADD_PHONE_TO_BASKET,
+		payload: id
+	});
+};
