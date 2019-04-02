@@ -1,11 +1,12 @@
 import React from 'react';
+import BasketCart from '../BasketCart/BarketCart';
 
 const SideBar = (props) => {
-    return(
-        <div>
-            Sidebar
-        </div>
-    )
-}
+	return (
+		<div>
+			<BasketCart />
+		</div>
+	);
+};
 
-export default SideBar
+export default SideBar;
