@@ -36,7 +36,15 @@ const PhoneCard = (props) => {
 				</div>
 			</div>
 
-			<div>name, price and description</div>
+			<div className="bottom-card">
+				<div className="bottom-t">
+					<h3>{p.name}</h3>
+					<h3>$ {p.price} </h3>
+				</div>
+				<div className="bottom-b">
+					<p>{p.description}</p>
+				</div>
+			</div>
 		</Card>
 	);
 };
@@ -48,7 +56,7 @@ const Card = styled.div`
 	margin: 0 auto;
 	border: 1px solid black;
 	padding: 20px;
-	margin-top: 10px;
+	margin-top: 30px;
 
 	&:hover {
 		border: 2px solid purple;
@@ -68,6 +76,11 @@ const Card = styled.div`
 			font-size: 15px;
 			font-style: italic;
 		}
+	}
+
+	.bottom-t {
+		display: flex;
+		justify-content: space-between;
 	}
 `;
 
