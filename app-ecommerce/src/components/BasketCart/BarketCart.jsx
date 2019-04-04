@@ -34,13 +34,13 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {})(BasketCart);
 
 const BasketWrapper = styled.div`
-	position: fixed;
+	position: sticky;
 	top: 20;
 	left: 4%;
 	border: 1px solid black;
 	padding: 15px;
 	text-align: center;
-	width: 200px;
+	max-width: 200px;
 	margin: 20px auto;
 	font-size: 19px;
 	background: lightcoral;

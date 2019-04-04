@@ -52,8 +52,8 @@ const PhoneCard = (props) => {
 const Card = styled.div`
 	display: flex;
 	flex-direction: column;
-	max-width: 55%;
-	margin: 0 auto;
+	/* max-width: 55%; */
+
 	border: 1px solid black;
 	padding: 20px;
 	margin-top: 30px;
