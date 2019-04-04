@@ -8,6 +8,10 @@ class Search extends Component {
 		searchValue: ''
 	};
 
+	componentDidMount() {
+		this.props.searchPhone();
+	}
+
 	handleChange = (e) => {
 		this.setState({
 			searchValue: e.target.value
@@ -18,6 +22,7 @@ class Search extends Component {
 		e.preventDefault();
 		this.props.searchPhone(this.state.searchValue);
 	};
+
 	render() {
 		return (
 			<Wrapper>
@@ -29,6 +34,9 @@ class Search extends Component {
 							<i className="fas fa-search" />
 						</button>
 					</form>
+					{
+						!this.props.searchResult.length && this.state.searchValue && <p>No products with this name</p>
+					}
 				</div>
 			</Wrapper>
 		);
@@ -39,7 +47,13 @@ class Search extends Component {
 // 	searchPhone
 // };
 
-export default connect(null, { searchPhone })(Search);
+const mapStateToProps = (state) => {
+	return {
+		searchResult: state.phones.searchResult
+	};
+};
+
+export default connect(mapStateToProps, { searchPhone })(Search);
 
 const Wrapper = styled.div`
 	position: sticky;
