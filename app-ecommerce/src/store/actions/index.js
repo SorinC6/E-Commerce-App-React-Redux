@@ -61,3 +61,11 @@ export const addPhoneToBasket = (id, price) => (dispatch) => {
 		payload2: price
 	});
 };
+
+export const searchPhone = (value) => (dispatch) => {
+	console.log('action', value);
+	dispatch({
+		type: types.SEARCH_PHONE,
+		payload: value
+	});
+};

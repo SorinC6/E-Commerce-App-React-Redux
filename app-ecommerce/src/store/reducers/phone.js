@@ -2,7 +2,8 @@ import * as types from '../actions/actionTypes';
 
 const initialState = {
 	phones: [],
-	phone: []
+	phone: [],
+	searchResult: []
 };
 
 export default (state = initialState, action) => {
@@ -24,6 +25,12 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				phone: action.payload
+			};
+		case types.SEARCH_PHONE:
+			//console.log('reducer',action.payload);
+			return {
+				...state,
+				searchResult: state.phones.filter((phone) => phone.name.toLowerCase().includes(action.payload))
 			};
 		default:
 			return state;

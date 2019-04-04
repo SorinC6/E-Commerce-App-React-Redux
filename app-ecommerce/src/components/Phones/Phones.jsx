@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPhones, loadMorePhones, addPhoneToBasket } from '../../store/actions/index';
+import { fetchPhones, loadMorePhones, addPhoneToBasket, searchPhone } from '../../store/actions/index';
 import { Link } from 'react-router-dom';
 import './Phones.css';
 
 class Phones extends Component {
 	componentDidMount() {
 		this.props.fetchPhones();
+		this.props.searchPhone();
 	}
 
 	renderPhone(phone, index) {
+		console.log(this.props.searchResult);
 		const shortDescription = phone.description;
 		const { addPhoneToBasket } = this.props;
 		return (
@@ -39,7 +41,13 @@ class Phones extends Component {
 		//const { phones } = this.props;
 		return (
 			<div>
-				<div className="cards">{this.props.phonesData.map((phone, idx) => this.renderPhone(phone, idx))}</div>
+				<div className="cards">
+					{this.props.searchResult.length ? (
+						this.props.searchResult.map((phone) => this.renderPhone(phone))
+					) : (
+						this.props.phonesData.map((phone, idx) => this.renderPhone(phone, idx))
+					)}
+				</div>
 				<div className="load-more">
 					<button onClick={this.props.loadMorePhones}>Load More Products</button>
 				</div>
@@ -50,13 +58,15 @@ class Phones extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		phonesData: state.phones.phones
+		phonesData: state.phones.phones,
+		searchResult: state.phones.searchResult
 	};
 };
 const mapDispatchToProps = {
 	fetchPhones,
 	loadMorePhones,
-	addPhoneToBasket
+	addPhoneToBasket,
+	searchPhone
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phones);

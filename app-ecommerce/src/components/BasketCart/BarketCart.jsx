@@ -41,7 +41,8 @@ const BasketWrapper = styled.div`
 	padding: 15px;
 	text-align: center;
 	max-width: 200px;
-	margin: 20px auto;
+	margin: 0 auto;
+	margin-top: 25px;
 	font-size: 19px;
 	background: lightcoral;
 	font-weight: bold;
