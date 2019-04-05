@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPhones, loadMorePhones, addPhoneToBasket, searchPhone } from '../../store/actions/index';
+import { fetchPhones, loadMorePhones, addPhoneToBasket, searchPhone, fetchCategories } from '../../store/actions/index';
 import { Link } from 'react-router-dom';
 import './Phones.css';
 
@@ -8,6 +8,7 @@ class Phones extends Component {
 	componentDidMount() {
 		this.props.fetchPhones();
 		this.props.searchPhone();
+		this.props.fetchCategories();
 	}
 
 	renderPhone(phone, index) {
@@ -66,7 +67,8 @@ const mapDispatchToProps = {
 	fetchPhones,
 	loadMorePhones,
 	addPhoneToBasket,
-	searchPhone
+	searchPhone,
+	fetchCategories
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phones);

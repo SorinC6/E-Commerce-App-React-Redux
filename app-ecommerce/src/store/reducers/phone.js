@@ -3,7 +3,8 @@ import * as types from '../actions/actionTypes';
 const initialState = {
 	phones: [],
 	phone: [],
-	searchResult: []
+	searchResult: [],
+	categories: []
 };
 
 export default (state = initialState, action) => {
@@ -31,6 +32,11 @@ export default (state = initialState, action) => {
 			return {
 				...state,
 				searchResult: state.phones.filter((phone) => phone.name.toLowerCase().includes(action.payload))
+			};
+		case types.FETCH_CATEGORIES_SUCCESS:
+			return {
+				...state,
+				categories: action.payload
 			};
 		default:
 			return state;

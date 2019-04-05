@@ -1,7 +1,8 @@
 import * as types from './actionTypes';
 import {
 	fetchPhones as fetchPhonesApi,
-	fetchPhonesById as fetchPhoneByIdApi
+	fetchPhonesById as fetchPhoneByIdApi,
+	fetchCategories as fetchCategotiresAPI
 	//
 } from '../api/index';
 
@@ -68,4 +69,22 @@ export const searchPhone = (value) => (dispatch) => {
 		type: types.SEARCH_PHONE,
 		payload: value
 	});
+};
+
+export const fetchCategories = () => async (dispatch) => {
+	dispatch({ type: types.FETCH_CATEGORIES_START });
+
+	try {
+		const categories = await fetchCategotiresAPI();
+		dispatch({
+			type: types.FETCH_CATEGORIES_SUCCESS,
+			payload: categories
+		});
+	} catch (error) {
+		dispatch({
+			type: types.FETCH_CATEGORIES_FAIL,
+			payload: error,
+			error: true
+		});
+	}
 };

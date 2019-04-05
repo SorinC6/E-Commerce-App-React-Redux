@@ -8,11 +8,12 @@ import Phone from './components/Phone/Phone';
 class App extends Component {
 	render() {
 		return (
-			<div>
+			<>
 				<Route exact path="/" component={Layout} />
 				<Route path="/shop" component={Phones} />
 				<Route path="/phone/:id" component={Phone} />
-			</div>
+				<Route path="/categories/:id" component={Layout} />
+			</>
 		);
 	}
 }
