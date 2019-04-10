@@ -27,7 +27,7 @@ class Phone extends Component {
 								<Link to="/">Back to store</Link>
 							</button>
 
-							<button onClick={() => this.props.addPhoneToBasket(this.props.match.params.id,p.price)}>
+							<button onClick={() => this.props.addPhoneToBasket(this.props.match.params.id, p.price)}>
 								Add to cart
 							</button>
 						</WrapperQick>
