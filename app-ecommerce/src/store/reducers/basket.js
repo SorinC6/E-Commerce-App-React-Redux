@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
         ...state,
         basket: state.basket.concat(action.payload),
         totalPrice: Number(state.totalPrice) + Number(action.payload2),
-        phonesInBasket: state.phonesInBasket.concat(action.payload)
+        phonesInBasket: state.phonesInBasket.concat(action.payload3)
       };
     default:
       return state;

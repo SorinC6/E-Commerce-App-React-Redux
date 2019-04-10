@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import LogoEnd from "./LogoEnd";
 import phone from "../../assets/smartphone.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,7 +25,9 @@ const Header = () => {
       </LogoWrapper>
 
       <LogoWrapper>
-        <img src={phone} alt="logo" className="imgg" width={20} />
+        <Link to="/">
+          <img src={phone} alt="logo" className="imgg" width={20} />
+        </Link>
       </LogoWrapper>
 
       <LogoWrapper>
@@ -57,5 +60,5 @@ const HeaderContainer = styled.header`
 `;
 
 const LogoWrapper = styled.div`
-  width: 25%;
+  /* width: 30%; */
 `;

@@ -47,6 +47,8 @@ const Wrapper = styled(Link)`
   background: lightgrey;
   padding: 10px 0;
   color: black;
+  transition: background-color 800ms;
+  transition: color 400ms;
 
   &:hover {
     background-color: lightblue;

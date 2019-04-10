@@ -76,6 +76,11 @@ const Wrapper = styled.div`
   }
   input {
     padding: 5px;
+    max-width: 200px;
+
+    @media (max-width: 460px) {
+      max-width: 50px;
+    }
   }
 
   button {

@@ -6,7 +6,7 @@ import styled from "styled-components";
 //import { getTotalBasketCount, getTotalBasketPrice } from '../selectors/selectors';
 
 const BasketCart = props => {
-  console.log(props.totalPrice);
+  //console.log(props.totalPrice);
 
   return (
     <BasketWrapper>

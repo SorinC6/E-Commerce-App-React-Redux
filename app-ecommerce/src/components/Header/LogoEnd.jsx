@@ -1,11 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import card from "../../assets/card.png";
+import { Link } from "react-router-dom";
 
 const LogoEnd = ({ scrolled }) => {
   return (
     <Wrapper
-      to="/"
+      to="/basket"
       style={{
         fontFamily: "Sniglet,cursive",
         textDecoration: "none",
@@ -22,7 +23,7 @@ const LogoEnd = ({ scrolled }) => {
 
 export default LogoEnd;
 
-const Wrapper = styled.div`
+const Wrapper = styled(Link)`
   .imgg {
     width: 50px;
   }
@@ -33,5 +34,13 @@ const Title = styled.h1`
   transition: opacity 600ms;
   margin-left: 20px;
   margin-right: 20px;
-  font-size:25px;
+  font-size: 25px;
+  transition: color 400ms;
+  :hover {
+    color: #ff0080;
+  }
+
+  @media (max-width: 650px) {
+    display: none;
+  }
 `;
