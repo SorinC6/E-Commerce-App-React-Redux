@@ -1,17 +1,21 @@
 .wiew-container {
-	margin-top: 20px;
+  margin-top: 20px;
 }
 
 .container {
-	display: flex;
+  display: flex;
+  margin-top: 110px;
 }
 
 .sidebar {
-	border: 1px solid black;
-	width: 20%;
+  /* border: 1px solid black; */
+  position: fixed;
+  top: 15%;
+  width: 25%;
 }
 
 .phones-view {
-	border: 1px solid black;
-	width: 80%;
+  border-left-style: groove;
+  width: 75%;
+  margin-left: 25%;
 }
