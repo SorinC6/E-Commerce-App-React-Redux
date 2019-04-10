@@ -45,7 +45,7 @@ const Wrapper = styled(Link)`
   margin: 0 auto;
   max-width: 180px;
   background: lightgrey;
-  padding: 20px 0;
+  padding: 10px 0;
   color: black;
 
   &:hover {

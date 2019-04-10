@@ -55,11 +55,12 @@ export const fetchPhoneById = id => async dispatch => {
   }
 };
 
-export const addPhoneToBasket = (id, price) => dispatch => {
+export const addPhoneToBasket = (id, price, phone) => dispatch => {
   dispatch({
     type: types.ADD_PHONE_TO_BASKET,
     payload: id,
-    payload2: price
+    payload2: price,
+    payload3: phone
   });
 };
 

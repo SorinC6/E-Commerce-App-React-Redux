@@ -30,7 +30,7 @@ class Phones extends Component {
 
 					<p className="description">{shortDescription}</p>
 					<div className="btn-more">
-						<button onClick={() => addPhoneToBasket(phone.id, phone.price)}>Buy Now</button>
+						<button onClick={() => addPhoneToBasket(phone.id, phone.price, phone)}>Buy Now</button>
 						<Link to={`/phone/${phone.id}`}>More Info</Link>
 					</div>
 				</div>

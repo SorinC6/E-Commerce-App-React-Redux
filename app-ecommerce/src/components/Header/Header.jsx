@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import styled from "styed-components";
-import { Link } from "react-router-dom";
-import "../../assets/logo.png";
+import styled from "styled-components";
+import Logo from "./Logo";
+import LogoEnd from "./LogoEnd";
+import phone from "../../assets/smartphone.png";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -15,4 +16,46 @@ const Header = () => {
       }
     });
   }, []);
+
+  return (
+    <HeaderContainer>
+      <LogoWrapper>
+        <Logo scrolled={scrolled} />
+      </LogoWrapper>
+
+      <LogoWrapper>
+        <img src={phone} alt="logo" className="imgg" width={20} />
+      </LogoWrapper>
+
+      <LogoWrapper>
+        <LogoEnd scrolled={scrolled} />
+      </LogoWrapper>
+    </HeaderContainer>
+  );
 };
+
+export default Header;
+
+const HeaderContainer = styled.header`
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0;
+  width: 100;
+  height: 65;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background: rgba(255, 255, 255, 0.95); */
+  background-color: ${({ scrolled }) =>
+    scrolled ? "green" : "rgba(255, 255, 255, 0.95)"};
+  transition: background-color 600ms;
+
+  img {
+    width: 50px;
+  }
+`;
+
+const LogoWrapper = styled.div`
+  width: 25%;
+`;
