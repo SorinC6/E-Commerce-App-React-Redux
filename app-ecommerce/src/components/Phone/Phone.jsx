@@ -33,7 +33,8 @@ class Phone extends Component {
                 onClick={() =>
                   this.props.addPhoneToBasket(
                     this.props.match.params.id,
-                    p.price
+                    p.price,
+                    
                   )
                 }
               >

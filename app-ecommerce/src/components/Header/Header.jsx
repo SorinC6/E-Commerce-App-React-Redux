@@ -49,11 +49,7 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background: rgba(255, 255, 255, 0.95); */
-  background-color: ${({ scrolled }) =>
-    scrolled ? "green" : "rgba(255, 255, 255, 0.95)"};
-  transition: background-color 600ms;
-
+  background: rgba(255, 255, 255, 0.80);
   img {
     width: 50px;
   }
