@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Card from "./Card";
 
 const Basket = props => {
-  const { phonesInBasket } = props;
+  const { phonesInBasket, totalPrice } = props;
   console.log(props.phonesInBasket);
   return (
     <Wrapper>
@@ -12,8 +12,9 @@ const Basket = props => {
       <ListWrapper>
         {!phonesInBasket.length && <div>No Products</div>}
         {phonesInBasket.map(phone => {
-          return <Card phone={phone} />;
+          return <Card phone={phone} totalPrice={totalPrice} />;
         })}
+        <h4>Total Price: {totalPrice}</h4>
       </ListWrapper>
     </Wrapper>
   );
@@ -21,7 +22,8 @@ const Basket = props => {
 
 const mapStateToProps = state => {
   return {
-    phonesInBasket: state.basket.phonesInBasket
+    phonesInBasket: state.basket.phonesInBasket,
+    totalPrice: state.basket.totalPrice
   };
 };
 
