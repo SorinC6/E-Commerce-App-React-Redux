@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import Card from "./Card";
 
 const Basket = props => {
   const { phonesInBasket } = props;
@@ -8,12 +9,12 @@ const Basket = props => {
   return (
     <Wrapper>
       <h4>Basket cart</h4>
-      {
-        !phonesInBasket.length && <div>No Products</div>
-      }
-      {phonesInBasket.map(phone => {
-        return <p>{phone.name}</p>;
-      })}
+      <ListWrapper>
+        {!phonesInBasket.length && <div>No Products</div>}
+        {phonesInBasket.map(phone => {
+          return <Card phone={phone} />;
+        })}
+      </ListWrapper>
     </Wrapper>
   );
 };
@@ -31,4 +32,10 @@ export default connect(
 
 const Wrapper = styled.div`
   padding-top: 100px;
+  display: flex;
+  justify-content: center;
+`;
+
+const ListWrapper = styled.div`
+  margin-top: 80px;
 `;

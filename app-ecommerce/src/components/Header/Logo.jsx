@@ -33,13 +33,12 @@ const Wrapper = styled(Link)`
 
 const Title = styled.h1`
   margin-left: 40px;
-
+  opacity: ${({ scrolled }) => (scrolled ? 0 : 1)};
   transition: color 400ms;
+  transition: opacity 600ms;
   :hover {
     color: #ff0080;
   }
-  opacity: ${({ scrolled }) => (scrolled ? 0 : 1)};
-  transition: opacity 600ms;
 
   @media (max-width: 650px) {
     font-size: 23px;
