@@ -3,15 +3,29 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
+import { getCategoryById, fetchPhones } from "../../store/actions/index";
 
 const Categories = props => {
+  const showCategory = id => {
+    console.log(id);
+
+    if (id === -1) {
+      props.fetchPhones();
+    } else {
+      props.getCategoryById(id);
+    }
+  };
   return (
     <Costum>
       <h4 style={{ textAlign: "center", paddingTop: "10px" }}>Brand</h4>
       {/* <Wrapper to="/">All</Wrapper> */}
       <div>
         {props.categories.map(cat => (
-          <Wrapper key={cat.id} to={`/categories/${cat.id}`}>
+          <Wrapper
+            key={cat.id}
+            to={`/categories/${cat.id}`}
+            onClick={() => showCategory(cat.id)}
+          >
             {cat.name}
           </Wrapper>
         ))}
@@ -28,7 +42,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { getCategoryById, fetchPhones }
 )(withRouter(Categories));
 
 const Costum = styled.div`

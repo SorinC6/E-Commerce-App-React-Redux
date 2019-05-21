@@ -11,6 +11,7 @@ export const fetchPhones = () => async dispatch => {
     dispatch({ type: types.FETCH_PHONE_START });
 
     const phones = await fetchPhonesApi();
+    console.log(phones);
     dispatch({
       type: types.FETCH_PHONE_SUCCESS,
       payload: phones
@@ -93,4 +94,17 @@ export const fetchCategories = () => async dispatch => {
 
 export const showCategories = id => dispatch => {
   dispatch({ type: types.SHOW_CATEGORIES_SUCCESS, payload: id });
+};
+
+export const getCategoryById = id => dispatch => {
+  dispatch({ type: types.GET_CATEGORY_BY_ID_START });
+
+  try {
+    dispatch({ type: types.GET_CATEGORY_BY_ID_SUCCESS, payload: id });
+  } catch (err) {
+    dispatch({
+      type: types.GET_CATEGORY_BY_ID_FAIL,
+      payload: "Error trying to get categoryes by id"
+    });
+  }
 };
