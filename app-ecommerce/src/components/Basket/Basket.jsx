@@ -5,14 +5,13 @@ import Card from "./Card";
 
 const Basket = props => {
   const { phonesInBasket, totalPrice } = props;
-  console.log(props.phonesInBasket);
   return (
     <Wrapper>
       <h4>Basket cart</h4>
       <ListWrapper>
         {!phonesInBasket.length && <div>No Products</div>}
         {phonesInBasket.map(phone => {
-          return <Card phone={phone} totalPrice={totalPrice} />;
+          return <Card key={phone.id} phone={phone} totalPrice={totalPrice} />;
         })}
         <h4>Total Price: {totalPrice}</h4>
       </ListWrapper>

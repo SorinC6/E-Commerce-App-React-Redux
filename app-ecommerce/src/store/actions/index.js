@@ -65,7 +65,6 @@ export const addPhoneToBasket = (id, price, phone) => dispatch => {
 };
 
 export const searchPhone = value => dispatch => {
-  console.log("action", value);
   dispatch({
     type: types.SEARCH_PHONE,
     payload: value
@@ -77,6 +76,8 @@ export const fetchCategories = () => async dispatch => {
 
   try {
     const categories = await fetchCategotiresAPI();
+    console.log(categories);
+    categories.unshift({ id: -1, name: "Show All" });
     dispatch({
       type: types.FETCH_CATEGORIES_SUCCESS,
       payload: categories
