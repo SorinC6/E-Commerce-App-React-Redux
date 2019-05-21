@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Card = ({ phone }) => {
   return (
     <Wrapper>
-      <img src={phone.image} alt="" />
+      <img src={phone.image} alt="imagine" />
       <p className="name">{phone.name}</p>
       <p className="price">{phone.price} $</p>
       <i className="fas fa-trash-alt" />

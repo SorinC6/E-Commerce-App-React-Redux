@@ -12,7 +12,6 @@ class Phones extends Component {
 	}
 
 	renderPhone(phone, index) {
-		console.log(this.props.searchResult);
 		const shortDescription = phone.description;
 		const { addPhoneToBasket } = this.props;
 		return (

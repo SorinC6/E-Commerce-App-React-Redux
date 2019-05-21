@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log(action.payload2);
   switch (action.type) {
     case types.ADD_PHONE_TO_BASKET:
       return {

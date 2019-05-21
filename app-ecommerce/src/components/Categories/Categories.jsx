@@ -2,18 +2,32 @@ import React from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import {withRouter} from 'react-router-dom'
+import { withRouter } from "react-router-dom";
+import { getCategoryById, fetchPhones } from "../../store/actions/index";
 
 const Categories = props => {
-  console.log(props.match.params.id)
-  
+  const showCategory = id => {
+    console.log(id);
+
+    if (id === -1) {
+      props.fetchPhones();
+    } else {
+      props.getCategoryById(id);
+    }
+  };
   return (
     <Costum>
-      <h4 style={{ textAlign: "center",paddingTop:'10px' }}>Brand</h4>
-			<Wrapper to="/">All</Wrapper>
+      <h4 style={{ textAlign: "center", paddingTop: "10px" }}>Brand</h4>
+      {/* <Wrapper to="/">All</Wrapper> */}
       <div>
         {props.categories.map(cat => (
-          <Wrapper to={`/categories/${cat.id}`}>{cat.name}</Wrapper>
+          <Wrapper
+            key={cat.id}
+            to={`/categories/${cat.id}`}
+            onClick={() => showCategory(cat.id)}
+          >
+            {cat.name}
+          </Wrapper>
         ))}
       </div>
     </Costum>
@@ -28,14 +42,14 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { getCategoryById, fetchPhones }
 )(withRouter(Categories));
 
 const Costum = styled.div`
-	background: #f9f2ec;
-	padding-bottom:20px;
-	max-width:230px;
-	margin:0 auto;
+  background: #f9f2ec;
+  padding-bottom: 20px;
+  max-width: 230px;
+  margin: 0 auto;
 `;
 
 const Wrapper = styled(Link)`

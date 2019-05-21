@@ -43,8 +43,17 @@ export default (state = initialState, action) => {
       };
     case types.SHOW_CATEGORIES_SUCCESS:
       return {
-		...state,
-		
+        ...state
+      };
+    case types.GET_CATEGORY_BY_ID_SUCCESS:
+      console.log(state.phones);
+      return {
+        ...state,
+        phones: state.phones.map(ph => {
+          if (ph.categoryId === action.payload) {
+            return ph;
+          }
+        })
       };
     default:
       return state;

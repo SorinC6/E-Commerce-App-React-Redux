@@ -49,7 +49,7 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255, 255, 255, 0.80);
+  background: rgba(111, 155, 155, 0.80);
   img {
     width: 50px;
   }
