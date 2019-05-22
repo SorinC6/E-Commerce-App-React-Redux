@@ -24,8 +24,6 @@ class Search extends Component {
   };
 
   render() {
-    console.log("search result: ", this.props.searchResult);
-    console.log("searchValue : ", this.props.searchResult);
     return (
       <Wrapper>
         <p>Qick shop</p>

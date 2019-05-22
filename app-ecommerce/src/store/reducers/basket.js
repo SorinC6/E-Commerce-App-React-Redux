@@ -15,6 +15,17 @@ export default (state = initialState, action) => {
         totalPrice: Number(state.totalPrice) + Number(action.payload2),
         phonesInBasket: state.phonesInBasket.concat(action.payload3)
       };
+    case types.REMOVE_PHONE_FROM_BASKET_SUCCESS:
+      console.log("reducer: ", action.payload);
+      return {
+        ...state,
+        totalPrice: state.totalPrice - action.payload2,
+        phonesInBasket: state.phonesInBasket.filter(phone => {
+          //console.log("ssss ", phone.id);
+          console.log(`Basket phones `, phone);
+          return !(phone.id == action.payload.toString());
+        })
+      };
     default:
       return state;
   }

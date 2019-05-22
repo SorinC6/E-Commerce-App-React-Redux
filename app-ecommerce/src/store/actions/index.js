@@ -113,11 +113,15 @@ export const getCategoryById = id => dispatch => {
   }
 };
 
-export const removePhoneFromBasket = id => dispatch => {
+export const removePhoneFromBasket = (id, price) => dispatch => {
   dispatch({ type: types.REMOVE_PHONE_FROM_BASKET_START });
 
   try {
-    dispatch({ type: types.REMOVE_PHONE_FROM_BASKET_SUCCESS, payload: id });
+    dispatch({
+      type: types.REMOVE_PHONE_FROM_BASKET_SUCCESS,
+      payload: id,
+      payload2: price
+    });
   } catch (error) {
     dispatch({
       type: types.REMOVE_PHONE_FROM_BASKET_FAIL,

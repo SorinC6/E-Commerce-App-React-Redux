@@ -1,17 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import { removePhoneFromBasket } from "../../store/actions/index";
 import Card from "./Card";
 
 const Basket = props => {
   const { phonesInBasket, totalPrice } = props;
+
+  const deletePhone = (id, price) => {
+    console.log(id);
+    props.removePhoneFromBasket(id, price);
+  };
   return (
     <Wrapper>
       <h4>Basket cart</h4>
       <ListWrapper>
         {!phonesInBasket.length && <div>No Products</div>}
         {phonesInBasket.map(phone => {
-          return <Card key={phone.id} phone={phone} totalPrice={totalPrice} />;
+          return (
+            <Card
+              key={phone.id}
+              phone={phone}
+              totalPrice={totalPrice}
+              deletePhoneFromBasket={deletePhone}
+            />
+          );
         })}
         <h4>Total Price: {totalPrice}</h4>
       </ListWrapper>
@@ -28,7 +41,7 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  {}
+  { removePhoneFromBasket }
 )(Basket);
 
 const Wrapper = styled.div`
