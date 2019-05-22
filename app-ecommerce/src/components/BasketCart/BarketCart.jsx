@@ -26,7 +26,7 @@ const mapStateToProps = state => {
   return {
     //totalBasketCount: getTotalBasketCount(state),
     basket: state.basket.basket,
-    totalBasketCount: state.basket.basket.length,
+    totalBasketCount: state.basket.phonesInBasket.length,
     totalPrice: state.basket.totalPrice
   };
 };
