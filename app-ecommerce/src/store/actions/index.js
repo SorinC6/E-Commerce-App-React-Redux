@@ -112,3 +112,16 @@ export const getCategoryById = id => dispatch => {
     }
   }
 };
+
+export const removePhoneFromBasket = id => dispatch => {
+  dispatch({ type: types.REMOVE_PHONE_FROM_BASKET_START });
+
+  try {
+    dispatch({ type: types.REMOVE_PHONE_FROM_BASKET_SUCCESS, payload: id });
+  } catch (error) {
+    dispatch({
+      type: types.REMOVE_PHONE_FROM_BASKET_FAIL,
+      payload: "Error trying to remove phone from basket"
+    });
+  }
+};
