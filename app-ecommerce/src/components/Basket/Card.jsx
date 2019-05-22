@@ -23,6 +23,10 @@ const Wrapper = styled.div`
   box-shadow: inset 0 -1px 0 0 #046ca3, inset 0 1px 0 0 #046ca3,
     0 1px 0 0 #046ca3, 0 -1px 0 0 #046ca3;
 
+  @media (max-width: 700px) {
+    max-width: 90%;
+  }
+
   img {
     width: 50px;
     height: 50px;
@@ -31,11 +35,21 @@ const Wrapper = styled.div`
 
   .name {
     padding: 20px 30px;
+
+    @media (max-width: 700px) {
+      padding: 5px 15px;
+    }
   }
   .price {
     padding: 20px 30px;
+    @media (max-width: 700px) {
+      padding: 5px 15px;
+    }
   }
   i {
     padding: 20px 30px;
+    @media (max-width: 700px) {
+      padding: 5px 15px;
+    }
   }
 `;
