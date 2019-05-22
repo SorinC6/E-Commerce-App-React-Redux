@@ -19,6 +19,9 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px dashed #046ca3;
+  box-shadow: inset 0 -1px 0 0 #046ca3, inset 0 1px 0 0 #046ca3,
+    0 1px 0 0 #046ca3, 0 -1px 0 0 #046ca3;
 
   img {
     width: 50px;

@@ -24,6 +24,8 @@ class Search extends Component {
   };
 
   render() {
+    console.log("search result: ", this.props.searchResult);
+    console.log("searchValue : ", this.props.searchResult);
     return (
       <Wrapper>
         <p>Qick shop</p>
@@ -34,7 +36,7 @@ class Search extends Component {
               <i className="fas fa-search" />
             </button>
           </form>
-          {!this.props.searchResult.length && !this.state.searchValue && (
+          {!this.props.searchResult.length && this.state.searchValue && (
             <p style={{ fontSize: "16px" }}>No products with this name</p>
           )}
         </div>
