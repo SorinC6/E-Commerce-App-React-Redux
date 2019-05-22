@@ -77,8 +77,7 @@ export const fetchCategories = () => async dispatch => {
 
   try {
     const categories = await fetchCategotiresAPI();
-    //console.log(categories);
-    categories.unshift({ id: -1, name: "Show All" });
+
     dispatch({
       type: types.FETCH_CATEGORIES_SUCCESS,
       payload: categories

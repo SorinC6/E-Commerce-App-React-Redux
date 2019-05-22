@@ -26,7 +26,7 @@ const mapStateToProps = state => {
   return {
     //totalBasketCount: getTotalBasketCount(state),
     basket: state.basket.basket,
-    totalBasketCount: state.basket.basket.length,
+    totalBasketCount: state.basket.phonesInBasket.length,
     totalPrice: state.basket.totalPrice
   };
 };
@@ -54,5 +54,18 @@ const BasketWrapper = styled.div`
   }
   a {
     color: black;
+  }
+
+  span {
+    @media (max-width: 400px) {
+      font-size: 14px;
+    }
+  }
+
+  a {
+    @media (max-width: 700px) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 `;

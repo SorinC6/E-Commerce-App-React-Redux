@@ -8,7 +8,6 @@ const Basket = props => {
   const { phonesInBasket, totalPrice } = props;
 
   const deletePhone = (id, price) => {
-    console.log(id);
     props.removePhoneFromBasket(id, price);
   };
   return (
@@ -19,7 +18,7 @@ const Basket = props => {
         {phonesInBasket.map(phone => {
           return (
             <Card
-              key={phone.id}
+              key={Math.random() * 100}
               phone={phone}
               totalPrice={totalPrice}
               deletePhoneFromBasket={deletePhone}
