@@ -34,7 +34,7 @@ class Search extends Component {
               <i className="fas fa-search" />
             </button>
           </form>
-          {!this.props.searchResult.length && this.state.searchValue && (
+          {!this.props.searchResult.length && !this.state.searchValue && (
             <p style={{ fontSize: "16px" }}>No products with this name</p>
           )}
         </div>

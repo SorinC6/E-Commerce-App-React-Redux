@@ -50,22 +50,20 @@ class Phones extends Component {
   }
 
   render() {
-    console.log("phone Data: ", this.props.categoryPressed);
-    console.log("phone Data: ", this.props.categoriesData);
     return (
       <div>
         <div className="cards">
-          
-          {
-            this.props.categoryPressed ? this.props.categoriesData.map(phone => this.renderPhone(phone)) :
-
-            this.props.searchResult.length
-            ? this.props.searchResult.map(phone => this.renderPhone(phone))
-            : this.props.phonesData.map((phone, idx) =>
+          {this.props.categoryPressed
+            ? this.props.categoriesData.map((phone, idx) =>
                 this.renderPhone(phone, idx)
               )
-              
-          }
+            : this.props.searchResult.length
+            ? this.props.searchResult.map((phone, idx) =>
+                this.renderPhone(phone, idx)
+              )
+            : this.props.phonesData.map((phone, idx) =>
+                this.renderPhone(phone, idx)
+              )}
         </div>
         <div className="load-more">
           <button onClick={this.props.loadMorePhones}>
