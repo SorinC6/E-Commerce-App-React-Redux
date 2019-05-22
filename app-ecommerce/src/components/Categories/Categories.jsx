@@ -9,10 +9,14 @@ const Categories = props => {
   const showCategory = id => {
     props.getCategoryById(id);
   };
+
+  const showAll = () => {
+    //props.categoryPressed = false;
+  };
   return (
     <Costum>
       <h4 style={{ textAlign: "center", paddingTop: "10px" }}>Brand</h4>
-      {/* <Wrapper to="/">All</Wrapper> */}
+      {/* <Wrapper onClick={showAll}>All</Wrapper> */}
       <div>
         {props.categories.map(cat => (
           <Wrapper
