@@ -11,7 +11,7 @@ export const fetchPhones = () => async dispatch => {
     dispatch({ type: types.FETCH_PHONE_START });
 
     const phones = await fetchPhonesApi();
-    console.log(phones);
+    //console.log(phones);
     dispatch({
       type: types.FETCH_PHONE_SUCCESS,
       payload: phones
@@ -77,7 +77,7 @@ export const fetchCategories = () => async dispatch => {
 
   try {
     const categories = await fetchCategotiresAPI();
-    console.log(categories);
+    //console.log(categories);
     categories.unshift({ id: -1, name: "Show All" });
     dispatch({
       type: types.FETCH_CATEGORIES_SUCCESS,
@@ -99,12 +99,33 @@ export const showCategories = id => dispatch => {
 export const getCategoryById = id => dispatch => {
   dispatch({ type: types.GET_CATEGORY_BY_ID_START });
 
+  if (id == -1) {
+    dispatch({ type: types.GET_ALL_CATEGORIES });
+  } else {
+    try {
+      dispatch({ type: types.GET_CATEGORY_BY_ID_SUCCESS, payload: id });
+    } catch (err) {
+      dispatch({
+        type: types.GET_CATEGORY_BY_ID_FAIL,
+        payload: "Error trying to get categoryes by id"
+      });
+    }
+  }
+};
+
+export const removePhoneFromBasket = (id, price) => dispatch => {
+  dispatch({ type: types.REMOVE_PHONE_FROM_BASKET_START });
+
   try {
-    dispatch({ type: types.GET_CATEGORY_BY_ID_SUCCESS, payload: id });
-  } catch (err) {
     dispatch({
-      type: types.GET_CATEGORY_BY_ID_FAIL,
-      payload: "Error trying to get categoryes by id"
+      type: types.REMOVE_PHONE_FROM_BASKET_SUCCESS,
+      payload: id,
+      payload2: price
+    });
+  } catch (error) {
+    dispatch({
+      type: types.REMOVE_PHONE_FROM_BASKET_FAIL,
+      payload: "Error trying to remove phone from basket"
     });
   }
 };

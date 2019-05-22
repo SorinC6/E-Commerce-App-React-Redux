@@ -5,7 +5,9 @@ const initialState = {
   phone: [],
   searchResult: [],
   categories: [],
-  showCategories: []
+  showCategories: [],
+  categoriesData: [],
+  categoryPressed: false
 };
 
 export default (state = initialState, action) => {
@@ -32,6 +34,7 @@ export default (state = initialState, action) => {
       //console.log('reducer',action.payload);
       return {
         ...state,
+        categoryPressed: false,
         searchResult: state.phones.filter(phone =>
           phone.name.toLowerCase().includes(action.payload)
         )
@@ -46,14 +49,19 @@ export default (state = initialState, action) => {
         ...state
       };
     case types.GET_CATEGORY_BY_ID_SUCCESS:
-      console.log(state.phones);
+      //console.log(state.phones);
+      //console.log("reducer ", action.payload);
       return {
         ...state,
-        phones: state.phones.map(ph => {
-          if (ph.categoryId === action.payload) {
-            return ph;
-          }
+        categoryPressed: true,
+        categoriesData: state.phones.filter(ph => {
+          return ph.categoryId === action.payload;
         })
+      };
+    case types.GET_ALL_CATEGORIES:
+      return {
+        ...state,
+        categoryPressed: false
       };
     default:
       return state;

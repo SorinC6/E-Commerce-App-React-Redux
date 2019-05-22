@@ -7,13 +7,7 @@ import { getCategoryById, fetchPhones } from "../../store/actions/index";
 
 const Categories = props => {
   const showCategory = id => {
-    console.log(id);
-
-    if (id === -1) {
-      props.fetchPhones();
-    } else {
-      props.getCategoryById(id);
-    }
+    props.getCategoryById(id);
   };
   return (
     <Costum>
@@ -23,7 +17,7 @@ const Categories = props => {
         {props.categories.map(cat => (
           <Wrapper
             key={cat.id}
-            to={`/categories/${cat.id}`}
+            // to={`/categories/${cat.id}`}
             onClick={() => showCategory(cat.id)}
           >
             {cat.name}
@@ -36,7 +30,8 @@ const Categories = props => {
 
 const mapStateToProps = state => {
   return {
-    categories: state.phones.categories
+    categories: state.phones.categories,
+    categoryPressed: state.phones.categoryPressed
   };
 };
 
@@ -52,7 +47,7 @@ const Costum = styled.div`
   margin: 0 auto;
 `;
 
-const Wrapper = styled(Link)`
+const Wrapper = styled.div`
   display: fex;
   justify-content: center;
   border: 1px solid #f3e5d8;
