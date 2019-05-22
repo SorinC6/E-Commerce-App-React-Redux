@@ -55,4 +55,17 @@ const BasketWrapper = styled.div`
   a {
     color: black;
   }
+
+  span {
+    @media (max-width: 400px) {
+      font-size: 14px;
+    }
+  }
+
+  a {
+    @media (max-width: 700px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 `;
